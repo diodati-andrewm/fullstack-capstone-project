@@ -41,6 +41,11 @@ app.use('/api/gifts', giftRoutes);
 // Search API Task 2: add the searchRoutes to the server by using the app.use() method.
 app.use('/api/search', searchRoutes);
 
+// Default Route for React App
+app.get('/app/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'react-app', 'index.html'));
+});
+
 
 // Global Error Handler
 app.use((err, req, res, next) => {
